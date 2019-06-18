@@ -1,0 +1,53 @@
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Menu?>
+
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
+<VBox fx:controller="MenuController"
+      xmlns:fx="http://javafx.com/fxml"
+      maxHeight="50" minHeight="50" prefWidth="Infinity" >
+
+    <MenuBar fx:id="menuBar" minWidth="Infinity">
+        <Menu fx:id="fileMenu" text="File" onAction="#actionOnMenuBarFile">
+            <MenuItem text="Open"/>
+            <MenuItem text="Remove"/>
+            <MenuItem text="Zip"/>
+        </Menu>
+        <Menu text="About"/>
+    </MenuBar>
+
+    <GridPane fx:id="windowContent" VBox.vgrow="ALWAYS">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT" maxWidth="Infinity" minWidth="50" prefWidth="200" />
+            <ColumnConstraints halignment="LEFT" maxWidth="Infinity" minWidth="50" prefWidth="200"/>
+            <ColumnConstraints halignment="RIGHT" maxWidth="Infinity" minWidth="50" prefWidth="200"/>
+        </columnConstraints>
+
+        <ListView fx:id="listView" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.columnSpan="2" GridPane.vgrow="ALWAYS"/>
+
+        <Button text="Add File" fx:id="addFileButton" minWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="0"
+        onAction="#openFileChooser">
+            <GridPane.margin>
+                <Insets top="10" bottom="250" left="10" right="50"/>
+            </GridPane.margin>
+        </Button>
+
+        <Button text="Delete" fx:id="removeFileButton" minWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="0">
+            <GridPane.margin>
+                <Insets top="10" bottom="200" left="10" right="50"/>
+            </GridPane.margin>
+        </Button>
+
+        <Button text="ZIP" fx:id="zipButton" minWidth="100" GridPane.columnIndex="2" GridPane.rowIndex="0"
+        onAction="#zipSelectedFile">
+            <GridPane.margin>
+                <Insets top="10" bottom="150" left="10" right="50"/>
+            </GridPane.margin>
+        </Button>
+
+    </GridPane>
+
+</VBox>
